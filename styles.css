@@ -1,0 +1,46 @@
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #c2fff9;
+  font-weight: bold;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+div.tooltip {
+  position: absolute;
+  font-family: "Nunito Sans";
+  background-color: white;
+  max-width: 230px;
+  height: auto;
+  padding: 10px;
+  border-radius: 10px;
+  border-width: 1px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+body {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #022b3a,
+      0 0 40px #022b3a, 0 0 50px #022b3a, 0 0 60px #022b3a, 0 0 70px #022b3a;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #1f7a8c, 0 0 40px #1f7a8c,
+      0 0 50px #1f7a8c, 0 0 60px #1f7a8c, 0 0 70px #1f7a8c, 0 0 80px #1f7a8c;
+  }
+}
