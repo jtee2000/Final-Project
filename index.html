@@ -13,15 +13,101 @@
     <script src="https://cdn.jsdelivr.net/npm/d3-axis@3"></script>
     <script src="https://unpkg.com/topojson@3"></script>
     <script type="text/javascript" src="https://d3js.org/topojson.v3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.18.2"></script>
+    <style media="screen">
+      /* Add space between Vega-Embed links  */
+      .vega-actions a {
+        margin-right: 5px;
+      }
+    </style>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
 </head>
 <body>
     <div class="header-container">
         <h1>Obesity: The Epidemic of America</h1>
+        <h4>By Jason Tee, Carter Ogden, Albar Shahnoor, & Joy Son</h4>
         <br><br>
+        <p>Obesity was first introduced in history as a result of the technological advances from the 18th century. 
+            These advances gradually became the indicator for an overabundance of easy access food as well as decreased 
+            physical activity. In the latter half of the 19th century, weight began to be stigmatized for beauty standards and in the 20th century,
+            the association between weight and increased health risk was recognized.</p>
+        <p>As of 2016, according to WHO, 650 million adults worldwide were obese. Among the Organisation for Economic Co-operation and Development (OECD) 
+            companies, the U.S. holds the <font size="5">highest percentage </font> of obese adults.
+        </p>
         <h2>Obesity Rates Around the World</h2>
-        <div id="map"></div>
+        <div id="map"></div><br><br>
+        <h2>Obesity Rates in the U.S. by Age</h2><br>
+        <div class="content-container">
+            <p>After experiencing a spike in the 1980s, the U.S. has been on a steadily increasing <font size="5">upper trend </font>in obesity.
+            Additionally, obesity rates are significantly increasing in every age group, from as young as 2 years old to older than 60 years of age. This raises a concern
+        regarding childhood obesity as it is a strong indicator for adulthood obesity, premature death, and disability. The primary causes of childhood obesity are:<br>
+        <br><font size="4"> - Genetics</font> (*does not predetermine obesity)
+        <br><font size="4"> - Engineered Junk Food</font>
+        <br><font size="4"> - Food Addiction</font>
+        <br><font size="4"> - Aggressive Marketing</font> of unhealthy products
+        <br><font size="4"> - Insulin</font>
+    </p>
+            <div id="agevis"></div>
+        </div>
+
+        <script>
+            // Assign the specification to a local variable vlSpec.
+            var USage = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "data": {"url": "https://raw.githubusercontent.com/heejeans/hf-project/main/agegroups-finalproject.csv"},
+            "width": 500,
+            "height": 300,
+
+            "encoding": {"x": {"field": "years", "type": "temporal", "axis": {
+                "grid": false
+            }, "title": "Year"}},
+            "layer": [
+            {
+            "encoding": {
+                "color": {"field": "age_group", "type": "nominal", "sort":null, "scale":{"scheme": "yelloworangered"}},
+                "y": {"field": "rate", "type": "quantitative", "title":"Age"}
+            },
+            "layer": [
+                {"mark": "line"},
+                {"transform": [{"filter": {"param": "hover", "empty": false}}], "mark": "point"}
+            ]
+            },
+            {
+            "transform": [{"pivot": "age_group", "value": "rate", "groupby": ["years"]}],
+            "mark": "rule",
+            "encoding": {
+                "opacity": {
+                "condition": {"value": 0.3, "param": "hover", "empty": false},
+                "value": 0
+                },
+                "tooltip": [
+                {"field": "2-5", "type": "nominal"},
+                {"field": "6-11", "type": "nominal"},
+                {"field": "12-19", "type": "nominal"},
+                {"field": "20-39", "type": "nominal"},
+                {"field": "40-59", "type": "nominal"},
+                {"field": "60+", "type": "nominal"}
+                ]
+            },
+            "params": [{
+                "name": "hover",
+                "select": {
+                "type": "point",
+                "fields": ["years"],
+                "nearest": true,
+                "on": "mouseover",
+                "clear": "mouseout"
+                }
+            }]
+            }]       
+            };
+      
+            // Embed the visualization in the container with id `vis`
+            vegaEmbed('#agevis', USage);
+          </script>
     </div>
 </body>
 </html>
