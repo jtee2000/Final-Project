@@ -108,6 +108,72 @@
             // Embed the visualization in the container with id `vis`
             vegaEmbed('#agevis', USage);
           </script>
+                  <div id="NYvis"></div>
+          <script>
+              var NYobesity = {
+              "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+              "data": {
+                "url": "https://raw.githubusercontent.com/cogden18/Vis-Final/main/community-health-obesity-PERCENTAGE.csv"
+              },
+              "vconcat": [
+                {
+              "width": 1000,
+              "height": 800,
+              "mark": {"type": "circle", "tooltip": true},
+              "params": [{
+                "name":"selectedIndicator",
+               "select": {"type": "point", "fields": ["Indicator"]},
+               "bind": {
+                 "input": "select",
+                 "name": "Indicator",
+                 "options": [
+                    null,
+                    "Age-adjusted percentage of adults with physician diagnosed angina, heart attack or stroke",
+                    "Age-adjusted percentage of adults with physician diagnosed diabetes",
+                    "Percentage obese (95th percentile or higher) children (aged 2-4 years) in WIC",
+                    "Percentage overweight but not obese (85th-<95th percentile) - Middle and high school students",
+                    "Percentage obese (95th percentile or higher ) - Elementary students",
+                    "Percentage overweight but not obese (85th-<95th percentile) - All students (elementary, middle and high school)",
+                    "Percentage obese (95th percentile or higher) - All students (elementary, middle and high school)",
+                    "Percentage overweight but not obese (85th-<95th percentile) - Elementary students",
+                    "Percentage obese (95th percentile or higher ) - Middle and high school students",
+                    "Percentage of WIC mothers breastfeeding at least 6 months",
+                    "Age-adjusted percentage of adults eating 5 or more fruits or vegetables per day",
+                    "Age-adjusted percentage of adults obese (BMI 30 or higher)",
+                    "Percentage overweight or obese (85th percentile or higher) - Elementary students",
+                    "Percentage overweight or obese (85th percentile or higher) - Middle and high school students",
+                    "Age-adjusted percentage of adults overweight or obese (BMI 25 or higher)",
+                    "Age-adjusted percentage of adults who did not participate in leisure time physical activity in last 30 days",
+                    "Percentage of children (aged 2-4 years) enrolled in WIC watching TV 2 hours or less per day"
+                ]
+            }
+        }],
+            "encoding": {
+                "x": {
+                  "field": "County Code",
+                  "type": "nominal",
+                  "scale": {"zero": false}
+                },
+                "y": {
+                  "field": "Percentage/Rate",
+                  "type": "quantitative",
+                  "scale": {"zero": false}
+                 },
+                "color": {
+                 "condition": {
+                   "param": "selectedIndicator",
+                   "field": "Indicator",
+                   "type": "nominal",
+                   "scale": {"scheme": "viridis"}
+                  },
+                  "value": "#BDBDBD"
+                }  
+              }
+            }
+          ]
+        } 
+        vegaEmbed('#NYvis', NYobesity);
+          </script>
     </div>
     <div>
         <div class='tableauPlaceholder' id='viz1637630084733'
@@ -144,6 +210,7 @@
               scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
               vizElement.parentNode.insertBefore(scriptElement, vizElement);                
         </script>
+        
       </div>
 </body>
 </html>
