@@ -25,7 +25,7 @@
 div.tooltip {
   position: absolute;
   font-family: "Nunito Sans";
-  background-color: gray;
+  background-color: lightgray;
   max-width: 230px;
   height: auto;
   padding: 10px;
