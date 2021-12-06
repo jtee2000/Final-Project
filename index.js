@@ -22,7 +22,6 @@ function createMap(data, newData) {
 
 	var width = 1000
 	var height = 520
-	var total_y = 330
 
 	var projection = d3.geoNaturalEarth1()
 		.fitExtent([[0, 0], [width, height]], world)
@@ -79,6 +78,7 @@ function createMap(data, newData) {
         console.log(worldDataObj['Uganda'])
 		svg.selectAll('path')
 			.on('mouseover.tooltip', function(d, x) {
+				if (!worldDataObj[x.properties.name]) return; 
 				tooltip.transition()
 					.duration(200)
 					.style('opacity', .9)
