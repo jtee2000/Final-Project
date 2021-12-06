@@ -133,7 +133,7 @@ function createMap(data, newData) {
 			.attr('y', 450)
 			.attr('class', 'nunito')
 			.style('font-size', '14px')
-			.style('fill', 'white')
+			.style('fill', 'black')
 			.text('0')
 
 		svg.append('text')
@@ -142,7 +142,7 @@ function createMap(data, newData) {
 			.attr('y', 450)
 			.attr('class', 'nunito')
 			.style('font-size', '14px')
-			.style('fill', 'white')
+			.style('fill', 'black')
 			.text('50.8')
 		
 	}
