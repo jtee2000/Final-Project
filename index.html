@@ -41,7 +41,7 @@
         <div id="map"></div><br><br>
         <h2>Obesity Rates in the U.S. by Age</h2><br>
         <div class="content-container">
-            <p>After experiencing a spike in the 1980s, the U.S. has been on a steadily increasing <font size="5">upper trend </font>in obesity.
+            <p class="agetext">After experiencing a spike in the 1980s, the U.S. has been on a steadily increasing <font size="5">upper trend </font>in obesity.
             Additionally, obesity rates are significantly increasing in every age group, from as young as 2 years old to older than 60 years of age. This raises a concern
         regarding childhood obesity as it is a strong indicator for adulthood obesity, premature death, and disability. The primary causes of childhood obesity are:<br>
         <br><font size="4"> - Genetics</font> (*does not predetermine obesity)
@@ -109,7 +109,11 @@
             vegaEmbed('#agevis', USage);
           </script>
         <h2>Rates of obesity and other chronic illnesses in counties in New York State</h2><br>
-                  <div id="NYvis"></div>
+          <p>From the data, we notice some patterns. First, overweight and obesity rates are quite high for students.
+              Second, the spread for angina/heart disease diagnosis is fairly narrow while it is very high 
+              for participation rates in leisure time exercise. Third, the general outline for disease rates correspond i.e. the bumps
+          in the data segments align with each other e.g. angina and overweight adults.</p><br>
+          <div id="NYvis"></div>
           <script>
               var NYobesity = {
               "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -175,11 +179,6 @@
         } 
         vegaEmbed('#NYvis', NYobesity);
           </script>
-                <div class="content-container">
-            <p>From the data, we notice some patterns. First, overweight and obesity rates are quite high for students.
-                Second, the spread for angina/heart disease diagnosis is fairly narrow while it is very high 
-                for participation rates in leisure time exercise. Third, the general outline for disease rates correspond i.e. the bumps
-            in the data segments align with each other e.g. angina and overweight adults.</p> </div>
         
        <div class"header-container">
         <h2> Obesity Indicators in New York State</h2>
