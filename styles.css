@@ -3,7 +3,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #c2fff9;
+  color: #b044f9;
+  /* color: rgb(201, 146, 249); */
   font-weight: bold;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -16,7 +17,7 @@
   justify-content: center;
 }
 
-.content-container p{
+.content-container p {
   width: 50%;
   height: 100%;
 }
@@ -24,7 +25,7 @@
 div.tooltip {
   position: absolute;
   font-family: "Nunito Sans";
-  background-color: white;
+  background-color: gray;
   max-width: 230px;
   height: auto;
   padding: 10px;
@@ -34,12 +35,12 @@ div.tooltip {
   pointer-events: none;
 }
 
-body {
+/* body {
   background-color: rgba(0, 0, 0, 0.85);
-}
+} */
 
-p{
-  color: white;
+p {
+  color: black;
 }
 
 .agetext{
